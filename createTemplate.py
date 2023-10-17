@@ -22,7 +22,10 @@ class TemplateCreator:
             name = f"{group}{file}"
 
             if file == ".DS_Store" or file.endswith("entitlements"):
-                os.remove(f"{self.dir_path}/{file}")
+                try:
+                    os.remove(f"{self.dir_path}/{file}")
+                except:
+                    pass
                 continue
 
             if file == "Main.storyboard" and parentDir == "base.lproj":
